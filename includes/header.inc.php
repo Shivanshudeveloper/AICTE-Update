@@ -38,3 +38,4 @@
     </ul>
   </div>
 </nav>
+<script src="./ckeditor/ckeditor.js"></script>

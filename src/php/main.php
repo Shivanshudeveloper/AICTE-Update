@@ -163,3 +163,35 @@ if (isset($_POST['edit_induction'])) {
         header("Location: ../../edit_induction.php?edit=success");
     }
 }
+
+
+if (isset($_POST['submit_form'])) {
+    $scheme = mysqli_real_escape_string($conn, $_POST['scheme']);
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $proposed = mysqli_real_escape_string($conn, $_POST['editor']);
+    $future = mysqli_real_escape_string($conn, $_POST['editor2']);
+
+
+    // Include the database configuration file
+    $editorContent = $statusMsg = '';
+    
+    // Check whether the editor content is empty
+    if(!empty($proposed)) {
+        // Insert editor content in the database
+        $insert ="INSERT INTO new_scheme (scheme, title, description, proposed_target, future_target) VALUES ('$scheme', '$title', '$description', '$proposed', '$future')";
+        $result = mysqli_query($conn, $insert);
+        echo $result;
+        // If database insertion is successful
+        if($insert){
+            header("Location: ../../index.php?insert=sucess");
+            exit();
+        }else{
+            $statusMsg = "Some problem occurred, please try again.";
+            echo $statusMsg;
+        } 
+    }else{
+        $statusMsg = 'Please add content in the editor.';
+        echo $statusMsg;
+    }
+}

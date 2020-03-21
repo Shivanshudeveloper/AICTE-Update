@@ -65,6 +65,14 @@
                                 <option value="'.$row['name'].'">'.$row['name'].'</option>
                             ';
                         }
+
+                        $sql = "SELECT * FROM new_scheme;";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo '
+                                <option value="'.$row['title'].'">'.$row['title'].'</option>
+                            ';
+                        }
                     
                     ?>
                 </select>
@@ -1618,44 +1626,108 @@
 
                     $sql = "SELECT * FROM information WHERE name = '$scheme';";
                     $result = mysqli_query($conn, $sql);
-                    if ($row = mysqli_fetch_assoc($result)) {
-                        $table = $row['tables'];
-                        echo '
-                        <center>
-                            <a href="./'.$table.'?id='.$row['id'].'" class="btn mt-2 mb-2 btn-primary w-50">
-                                Print Table
-                            </a>
-                        </center>
-                        ';
+                    $resultChk = mysqli_num_rows($result);
+                    if ($resultChk < 1) {
 
-                        echo '
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                <h2 class="card-title">'.$row['name'].'</h2>
-                                <p class="card-text">
-                                '.$row['description'].'
-                                    <br>
-                                    
-                                </p>
-                            </div>
-                        </div>
-                        ';
-                        }
+                        $sql = "SELECT * FROM new_scheme WHERE title = '$scheme';";
+                        $result = mysqli_query($conn, $sql);
+                        if ($row = mysqli_fetch_assoc($result)) {
+                            echo 
 
-                        if ($table != "notable.php") {
-                            echo '
-                                <div class="card mt-2">
+                            '
+                            <div class="card mt-2">
                                 <div class="card-body">
-                                    <iframe id="inlineFrameExample"
-                                        title="Inline Frame Example"
-                                        width="100%"
-                                        height="500"
-                                        src="./iframe/'.$table.'">
-                                    </iframe>
+                                    <h2 class="card-title">'.$row['title'].'</h2>
+                                    <h2 class="card-title">'.$row['scheme'].'</h2>
+                                    <a href="#!" class="card-link">File Download</a>
+                                    <p class="card-text">
+                                    '.$row['description'].'
+                                        <br>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <br>
+                            <a href="./edit_view.php?e=proposed&id='.$row['id'].'" class="btn btn-info mt-2 float-right">Edit Proposed Target</a>
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col">
+                                    Proposed Target
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            '.$row['proposed_target'].'
+                                                <br>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <br>
+                            <a href="./edit_view.php?e=future&id='.$row['id'].'" class="btn btn-info mt-2 float-right">Edit Future Target</a>
+                            <br />
+                            <br />
+                            <div class="row mt-2">
+                                <div class="col">
+                                    Future Target
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            '.$row['future_target'].'
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             ';
                         }
+
+                    } else {
+                        if ($row = mysqli_fetch_assoc($result)) {
+                            $table = $row['tables'];
+                            echo '
+                            <center>
+                                <a href="./'.$table.'?id='.$row['id'].'" class="btn mt-2 mb-2 btn-primary w-50">
+                                    Print Table
+                                </a>
+                            </center>
+                            ';
+    
+                            echo '
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h2 class="card-title">'.$row['name'].'</h2>
+                                    <p class="card-text">
+                                    '.$row['description'].'
+                                        <br>
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                            ';
+                            }
+    
+                            if ($table != "notable.php") {
+                                echo '
+                                    <div class="card mt-2">
+                                    <div class="card-body">
+                                        <iframe id="inlineFrameExample"
+                                            title="Inline Frame Example"
+                                            width="100%"
+                                            height="500"
+                                            src="./iframe/'.$table.'">
+                                        </iframe>
+                                        </div>
+                                    </div>
+                                ';
+                            }
+                    }
+
+
+                    
                     
 
                     
