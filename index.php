@@ -145,6 +145,7 @@
 <script>
 	CKEDITOR.replace('editor');
 	CKEDITOR.replace('editor2');
+	CKEDITOR.replace('description');
 </script>
 
 

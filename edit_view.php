@@ -64,7 +64,7 @@
                                 echo '
 
                                     <textarea name="editor2" id="editor2" cols="30" rows="10">
-                                        '.$row['proposed_target'].'
+                                        '.$row['future_target'].'
                                     </textarea>
                                 
                                 ';
