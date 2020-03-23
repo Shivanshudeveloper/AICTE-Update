@@ -38,12 +38,12 @@
 
                         if ($edit == "proposed") {
                             echo '
-                            <form method="POST">
+                            <form action="./src/php/main.php?id='.$id.'" method="POST">
                             ';
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '
 
-                                    <textarea name="editor" id="editor" cols="30" rows="10">
+                                    <textarea name="editor" id="editor" cols="60" rows="60">
                                         '.$row['proposed_target'].'
                                     </textarea>
                                 
@@ -58,12 +58,12 @@
                             ';
                         } elseif ($edit == "future") {
                             echo '
-                            <form method="POST">
+                            <form action="./src/php/main.php?id='.$id.'" method="POST">
                             ';
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '
 
-                                    <textarea name="editor2" id="editor2" cols="30" rows="10">
+                                    <textarea name="editor2" id="editor2" cols="60" rows="60">
                                         '.$row['future_target'].'
                                     </textarea>
                                 
@@ -78,23 +78,7 @@
                             ';
                         }
 
-                        if (isset($_POST['update_proposed'])) {
-                            $proposed_new = mysqli_real_escape_string($conn, $_POST['editor']);
-
-                            $sql = "UPDATE new_scheme SET proposed_target = '$proposed_new' WHERE id = '$id';";
-                            mysqli_query($conn, $sql);
-
-                            header('Location: ./edit_view.php?update=sucess&id='.$id.'&e=proposed');
-                        }
-
-                        if (isset($_POST['update_future'])) {
-                            $future_new = mysqli_real_escape_string($conn, $_POST['editor2']);
-
-                            $sql = "UPDATE new_scheme SET future_target = '$future_new' WHERE id = '$id';";
-                            mysqli_query($conn, $sql);
-
-                            header('Location: ./edit_view.php?update=sucess&id='.$id.'&e=future');
-                        }
+                        
 
 
                         
@@ -108,8 +92,12 @@
 </div>
 
 <script>
-	CKEDITOR.replace('editor');
-	CKEDITOR.replace('editor2');
+	CKEDITOR.replace('editor', {
+        height: 1000,
+    });
+	CKEDITOR.replace('editor2', {
+        height: 1000,
+    });
 </script>
 
 

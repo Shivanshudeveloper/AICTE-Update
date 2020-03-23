@@ -195,3 +195,24 @@ if (isset($_POST['submit_form'])) {
         echo $statusMsg;
     }
 }
+
+
+if (isset($_POST['update_proposed'])) {
+    $proposed_new = mysqli_real_escape_string($conn, $_POST['editor']);
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+
+    $sql = "UPDATE new_scheme SET proposed_target = '$proposed_new' WHERE id = '$id';";
+    mysqli_query($conn, $sql);
+
+    header('Location: ../../edit_view.php?update=sucess&id='.$id.'&e=proposed');
+}
+
+if (isset($_POST['update_future'])) {
+    $future_new = mysqli_real_escape_string($conn, $_POST['editor2']);
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+
+    $sql = "UPDATE new_scheme SET future_target = '$future_new' WHERE id = '$id';";
+    mysqli_query($conn, $sql);
+
+    header('Location: ../../edit_view.php?update=sucess&id='.$id.'&e=future');
+}
