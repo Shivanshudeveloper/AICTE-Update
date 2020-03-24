@@ -1633,8 +1633,8 @@
                         $result = mysqli_query($conn, $sql);
                         if ($row = mysqli_fetch_assoc($result)) {
                             echo 
-
                             '
+                            <a href="printschemes.php?id='.$row['id'].'" class="btn btn-primary float-right">Print</a>
                             <div class="card mt-2">
                                 <div class="card-body">
                                     <h2 class="card-title">'.$row['title'].'</h2>
