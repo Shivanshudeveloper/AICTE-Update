@@ -37,5 +37,7 @@
       </li> -->
     </ul>
   </div>
+  <a class="btn btn-outline-danger btn-sm float-right" href="./logout.php">Logout</a>
 </nav>
 <script src="./ckeditor/ckeditor.js"></script>
+<?php include 'auth.php'; ?>

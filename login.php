@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<?php include './includes/header.inc.php' ?>
+<?php include './iframe/header.inc.php' ?>
 
-<div class="container w-50 mt-5 mb-5">
+<div class="container w-25 mt-5 mb-5">
     <h2 class="font-weight-bold mb-2 text-center">
         AICTE All Admin Login
     </h2>
-    <form>
-    <form>
+    <form action="./src/php/main.php" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" name="pwd" id="exampleInputPassword1">
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="./register.php" class="card-link">Create New Accound</a>
+        <button type="submit" name="login_btn" class="btn float-right btn-primary">Submit</button>
     </form>
 </div>
 

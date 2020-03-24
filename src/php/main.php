@@ -216,3 +216,44 @@ if (isset($_POST['update_future'])) {
 
     header('Location: ../../edit_view.php?update=sucess&id='.$id.'&e=future');
 }
+
+if (isset($_POST['register_user'])) {
+    $first = mysqli_real_escape_string($conn, $_POST['first']);
+    $last = mysqli_real_escape_string($conn, $_POST['last']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+    $department = mysqli_real_escape_string($conn, $_POST['department']);
+    
+    $hash = password_hash($pwd, PASSWORD_DEFAULT);
+
+
+    $uid = "USER_".uniqid().time();
+
+    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, password) VALUES ('$uid', '$first', '$last', '$department', '$email', '$hash')";
+    mysqli_query($conn, $sql);
+
+    header('Location: ../../login.php?register=success');
+
+}
+
+if (isset($_POST['login_btn'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+    $cmpPwd = "";
+    
+    while ($row = mysqli_fetch_assoc($result)) {
+        $cmpPwd = $row['password'];
+    }
+
+    if (password_verify($pwd, $cmpPwd)) {
+        header('Location: ../../index.php');
+        session_start();
+        $_SESSION['email'] = $email;
+    } else {
+        header('Location: ../../login.php?error=wrongpassword');
+    }
+
+}
