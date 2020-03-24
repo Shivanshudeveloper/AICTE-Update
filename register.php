@@ -10,9 +10,13 @@
 <?php include './iframe/header.inc.php' ?>
 
 <div class="container w-25 mt-5 mb-5">
-    <h2 class="font-weight-bold mb-2 text-center">
+    <center>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png" alt="" class="img img-fluid w-50 mb-2" srcset="">
+    </center>
+    <h2 class="font-weight-bold mb-4 text-center">
         AICTE All Admin Login
     </h2>
+    <?php include './includes/msg.inc.php' ?>
     <form action="./src/php/main.php" method="POST">
         <div class="form-row mb-4">
             <div class="col">
@@ -33,6 +37,7 @@
               <option value="MSOffice">Member Secretary Office</option>
               <option value="Policy-and-Academic-Planning-Bureau">Policy and Academic Planning Bureau</option>
               <option value="MIC">MIC</option>
+              <option value="NEAT">NEAT</option>
               <option value="RIFD">Research, Institutional and Faculty Development (RIFD) Bureau</option>
               <option value="Approval-Bureau">Approval Bureau</option>
               <option value="Finance-Bureau">Finance Bureau</option>
@@ -63,12 +68,13 @@
 
         <!-- Password -->
         <input type="password" id="defaultRegisterFormPassword" name="pwd" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-        <input type="password" id="defaultRegisterFormPassword" class="form-control mt-4" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
             At least 8 characters and 1 digit
         </small>
+        <input type="password" id="defaultRegisterFormPassword" class="form-control mt-4" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        
 
-        <a href="./login.php" class="float-left card-link">Already have an Account</a>
+        <a href="./login.php" class="float-left card-link mt-2">Already have an Account</a>
 
         <!-- Sign up button -->
         <button class="btn btn-primary my-4 float-right" name="register_user" type="submit">Register</button>

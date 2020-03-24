@@ -243,17 +243,25 @@ if (isset($_POST['login_btn'])) {
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     $cmpPwd = "";
+    $first = "";
+    $last = "";
+    $department = "";
     
     while ($row = mysqli_fetch_assoc($result)) {
         $cmpPwd = $row['password'];
+        $first = $row['first_name'];
+        $last = $row['last_name'];
+        $department = $row['department'];
     }
 
     if (password_verify($pwd, $cmpPwd)) {
-        header('Location: ../../index.php');
         session_start();
         $_SESSION['email'] = $email;
+        $_SESSION['name'] = $first." ".$last;
+        $_SESSION['department'] = $department;
+        header('Location: ../../index.php');
     } else {
-        header('Location: ../../login.php?error=wrongpassword');
+        header('Location: ../../login.php?wrongpassword=true');
     }
 
 }

@@ -13,8 +13,17 @@
     <div class="row">
         <div class="col">
             <h2 class="font-weight-bold mb-2 float-left">
-                All India Council for Technical Education
+                <?php 
+                    echo 'Welcome '.$_SESSION['name'];
+                ?>
             </h2>
+            <br/>
+            <br/>
+            <h5>
+                <?php 
+                    echo $_SESSION['department'];
+                ?>
+            </h5>
         </div>
         <div class="col-3 float-right">
             <a class="btn btn-info mt-1" href="./view.php">View By Department</a>
@@ -23,7 +32,7 @@
 
     
 
-    <form action="./src/php/main.php" method="post">
+    <form action="./src/php/main.php" method="post" class="mt-2">
         <div class="form-group">
             <label for="exampleFormControlSelect1">Departments</label>
             <select class="form-control" id="exampleFormControlSelect1">

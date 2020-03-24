@@ -10,9 +10,13 @@
 <?php include './iframe/header.inc.php' ?>
 
 <div class="container w-25 mt-5 mb-5">
-    <h2 class="font-weight-bold mb-2 text-center">
+    <center>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png" alt="" class="img img-fluid w-50 mb-2" srcset="">
+    </center>
+    <h2 class="font-weight-bold mb-4 text-center">
         AICTE All Admin Login
     </h2>
+    <?php include './includes/msg.inc.php' ?>
     <form action="./src/php/main.php" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -22,10 +26,6 @@
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" name="pwd" id="exampleInputPassword1">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <a href="./register.php" class="card-link">Create New Accound</a>
         <button type="submit" name="login_btn" class="btn float-right btn-primary">Submit</button>
