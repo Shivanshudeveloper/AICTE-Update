@@ -41,6 +41,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="./court_cases.php">Court Cases</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="./pmo.php">VVIP/PMO References</a>
+      </li>
     </ul>
   </div>
   <a class="btn btn-outline-danger btn-sm float-right" href="./logout.php">Logout</a>
