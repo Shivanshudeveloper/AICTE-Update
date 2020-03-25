@@ -9,13 +9,17 @@
 <body>
 <?php include './includes/header.inc.php' ?>
 
-<div class="container mt-5 mb-5">
+<div class="m-5">
     <h2 class="font-weight-bold mb-2">
         All India Council for Technical Education
     </h2>
-    <button onclick="window.print();" class="btn btn-primary float-right mb-2">
+    <a href="./print_all.php" class="btn btn-primary float-right mb-2">
         Print Page
-    </button>
+    </a>
+
+    <a href="./print_all_withnote.php" class="btn mr-2 btn-primary float-right mb-2">
+        Print With Notes
+    </a>
         <!-- <div class="form-group">
             <label for="exampleFormControlSelect1">Departments</label>
             <select class="form-control" id="exampleFormControlSelect1">
@@ -117,6 +121,42 @@
                             </div>
                         </div>
                     ';
+
+
+                    echo '
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Proposed Target (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row['proposed'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Targets Met Till Date (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row['future'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <hr />
+                        
+                        ';
+                    
                     }
                 } elseif ($scheme == "AICTE Quality Improvement Schemes (AQIS)") {
                     echo '
@@ -1639,7 +1679,7 @@
                                 <div class="card-body">
                                     <h2 class="card-title">'.$row['title'].'</h2>
                                     <h2 class="card-title">'.$row['scheme'].'</h2>
-                                    <a href="#!" class="card-link">File Download</a>
+                                    <a download href="'.$row['file_url'].'" class="card-link">File Download</a>
                                     <p class="card-text">
                                     '.$row['description'].'
                                         <br>
@@ -1653,7 +1693,7 @@
                             <br />
                             <div class="row">
                                 <div class="col">
-                                    Proposed Target
+                                    Proposed Target (Future Target F.Y. 2020-21)
                                     <div class="card mt-2">
                                         <div class="card-body">
                                             <p class="card-text">
@@ -1670,7 +1710,7 @@
                             <br />
                             <div class="row mt-2">
                                 <div class="col">
-                                    Future Target
+                                    Targets Met Till Date (Future Target F.Y. 2020-21)
                                     <div class="card mt-2">
                                         <div class="card-body">
                                             <p class="card-text">
@@ -1735,23 +1775,82 @@
 
 
 
-                }
+            } 
+            else {
+
+                $sql = "SELECT * FROM information;";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $table = $row['tables'];
+                        echo '
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h2 class="card-title">'.$row['name'].'</h2>
+                                <p class="card-text">
+                                '.$row['description'].'
+                                    <br>
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        ';
+
+
+                        echo '
+                        <div class="card mt-2">
+                        <div class="card-body">
+                            <iframe id="inlineFrameExample"
+                                title="Inline Frame Example"
+                                width="100%"
+                                height="500"
+                                src="./iframe/'.$table.'">
+                            </iframe>
+                            </div>
+                        </div>
+                    ';
+
+
+                    echo '
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Proposed Target (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row['proposed'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Targets Met Till Date (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row['future'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <hr />
+                        
+                        ';
+                
+            }
+        }
 
                 
                 
                 
         ?>
-
-
-
-
-        <div class="form-group">
-        
-        
-
-        
-
-        </div>
 </div>
 
 

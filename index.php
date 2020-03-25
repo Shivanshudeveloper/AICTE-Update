@@ -26,18 +26,22 @@
             </h5>
         </div>
         <div class="col-3 float-right">
-            <a class="btn btn-info mt-1" href="./view.php">View By Department</a>
+            
         </div>
     </div>
 
     
 
-    <form action="./src/php/main.php" method="post" class="mt-2">
+    <form action="./src/php/main.php" enctype="multipart/form-data" method="post" class="mt-2">
         <div class="form-group">
             <label for="exampleFormControlSelect1">Departments</label>
             <select class="form-control" id="exampleFormControlSelect1">
-                        <option selected disabled>Select Department</option>
-                        <option value="Policy & Academic Planning Bureau">Policy and Academic Planning Bureau</option>
+                        <?php
+                            echo '
+                                <option selected value="'.$_SESSION['department'].'">'.$_SESSION['department'].'</option>
+                        ';
+                        ?>
+                        <!-- <option value="Policy & Academic Planning Bureau">Policy and Academic Planning Bureau</option>
                         <option value="MIC">MIC</option>
                         <option value="Research, Institutional and Faculty Development (RIFD) Bureau">Research, Institutional and Faculty Development (RIFD) Bureau</option>
                         <option value="Approval Bureau">Approval Bureau</option>
@@ -67,7 +71,7 @@
                         <option value="E-Gov">E-Gov</option>
                         <option value="Induction Program Cell (IPC)">Induction Program Cell (IPC)</option>
                         <option value="Margdarshak Scheme">Margdarshak Scheme</option>
-                        <option value="AICTE Training And Learning ( ATAL ) Academy Cell">AICTE Training And Learning ( ATAL ) Academy Cell</option>
+                        <option value="AICTE Training And Learning ( ATAL ) Academy Cell">AICTE Training And Learning ( ATAL ) Academy Cell</option> -->
             </select>
         </div>
         <div class="form-group">
@@ -121,7 +125,7 @@
                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
             </div>
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                <input type="file" class="custom-file-input" id="upload" name="upload"
                 aria-describedby="inputGroupFileAddon01">
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>

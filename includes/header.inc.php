@@ -35,6 +35,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="./margdarshak.php">Margdarshak Cel</a>
       </li> -->
+      <li class="nav-item active">
+        <a class="nav-link" href="./view.php">View By Department</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="./court_cases.php">Court Cases</a>
+      </li>
     </ul>
   </div>
   <a class="btn btn-outline-danger btn-sm float-right" href="./logout.php">Logout</a>

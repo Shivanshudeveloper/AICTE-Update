@@ -6,20 +6,34 @@
     <title>AICTE</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
-<body>
+<body onload="print()">
 <?php include './includes/header.inc.php' ?>
 
 <div class="m-5">
     <h2 class="font-weight-bold mb-2">
+        All India Council for Technical Education
     </h2>
-    <button onclick="window.print();" class="btn btn-primary float-right mb-2">
-        Print Page
-    </button>
+    <?php
+        include_once './src/php/dbh.php';
+        $sql1 = "SELECT * FROM information;";
+        $result1 = mysqli_query($conn, $sql1);
+        $table_name = '';
+        while ($row1 = mysqli_fetch_assoc($result1)) {
+            $table_name = $row1['tables'];
+            echo '
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <h2 class="card-title">'.$row1['name'].'</h2>
+                        <p class="card-text">
+                        '.$row1['description'].'
+                        <br>
+                        </p>
+                    </div>
+                </div>'
+                ;
 
-<?php 
-include './src/php/dbh.php';
-
-echo '
+            if ($table_name == "teacher_training.php") {
+                echo '
                         <h2 class="text-center">
                             Teachers Training Policy
                         </h2>
@@ -198,3 +212,153 @@ echo '
                     </table>
                     
                     ';
+
+                    echo '
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Proposed Target (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row1['proposed'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Targets Met Till Date (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row1['future'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <br />
+                    <hr />
+                    <br />
+                        
+                    ';
+            } else {
+                echo '
+                    <div class="card mt-2">
+                    <div class="card-body">
+                        <iframe id="inlineFrameExample"
+                            title="Inline Frame Example"
+                            width="100%"
+                            height="700"
+                            frameBorder="0"
+                            src="./iframe/'.$table_name.'">
+                        </iframe>
+                        </div>
+                    </div>
+                ';
+
+                echo '
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Proposed Target (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row1['proposed'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title">Targets Met Till Date (Future Target F.Y. 2020-21)</h4>
+                                    <p class="card-text">
+                                    '.$row1['future'].'
+                                    <br>
+                                    </p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <br />
+                    <hr />
+                    <br />
+                        
+                ';
+            }
+            
+        }
+
+
+        $sql = "SELECT * FROM new_scheme;";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo 
+                            '
+                            <div class="card mt-2">
+                                <div class="card-body">
+                                    <h2 class="card-title">'.$row['title'].'</h2>
+                                    <h2 class="card-title">'.$row['scheme'].'</h2>
+                                    <p class="card-text">
+                                    '.$row['description'].'
+                                        <br>
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="card-title">Proposed Target (Future Target F.Y. 2020-21)</h4>
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            '.$row['proposed_target'].'
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <h4 class="card-title">Targets Met Till Date (Future Target F.Y. 2020-21)</h4>
+                                    <div class="card mt-2">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                            '.$row['future_target'].'
+                                                <br>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            ';
+        }
+    
+    ?>
+
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

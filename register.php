@@ -18,18 +18,8 @@
     </h2>
     <?php include './includes/msg.inc.php' ?>
     <form action="./src/php/main.php" method="POST">
-        <div class="form-row mb-4">
-            <div class="col">
-                <!-- First name -->
-                <input type="text" id="defaultRegisterFormFirstName" name="first" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-                <!-- Last name -->
-                <input type="text" id="defaultRegisterFormLastName" name="last" class="form-control" placeholder="Last name">
-            </div>
-        </div>
 
-        <div class="form-group">
+    <div class="form-group">
             <select class="form-control" name="department" id="department">
               <option selected="" disabled="">Select Department</option>
               <option value="CMOffice">Chairman Office</option>
@@ -61,10 +51,24 @@
               <option value="General-Office-Number">General Office Number</option>
               <option value="E-Gov">E-Gov</option>
             </select>
-          </div>
+        </div>
+
+
+        <div class="form-row mt-4 mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" id="defaultRegisterFormFirstName" name="first" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" id="defaultRegisterFormLastName" name="last" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+
+        
 
         <!-- E-mail -->
-        <input type="email" id="defaultRegisterFormEmail" name="email" class="form-control mt-4 mb-4" placeholder="E-mail">
+        <input type="email" id="defaultRegisterFormEmail" name="email" class="form-control mt-4 mb-4" placeholder="AICTE E-mail">
 
         <!-- Password -->
         <input type="password" id="defaultRegisterFormPassword" name="pwd" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">

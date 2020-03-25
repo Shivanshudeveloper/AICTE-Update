@@ -173,13 +173,23 @@ if (isset($_POST['submit_form'])) {
     $future = mysqli_real_escape_string($conn, $_POST['editor2']);
 
 
+    $file = $_FILES['upload']['tmp_name'];
+    $file_name = $_FILES['upload']['name'];
+    $file_name_array = explode(".", $file_name);
+    $extension = end($file_name_array);
+    $new_image_name = rand() . '.' . $extension;
+    chmod('../../upload', 0777);
+    move_uploaded_file($file, '../../upload/' . $new_image_name);
+    $url = './upload/' . $new_image_name;
+    $message = '';
+
     // Include the database configuration file
     $editorContent = $statusMsg = '';
     
     // Check whether the editor content is empty
     if(!empty($proposed)) {
         // Insert editor content in the database
-        $insert ="INSERT INTO new_scheme (scheme, title, description, proposed_target, future_target) VALUES ('$scheme', '$title', '$description', '$proposed', '$future')";
+        $insert ="INSERT INTO new_scheme (scheme, title, description, proposed_target, future_target, file_url) VALUES ('$scheme', '$title', '$description', '$proposed', '$future', '$url')";
         $result = mysqli_query($conn, $insert);
         echo $result;
         // If database insertion is successful

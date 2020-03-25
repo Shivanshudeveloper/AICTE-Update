@@ -27,7 +27,7 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" name="pwd" id="exampleInputPassword1">
         </div>
-        <a href="./register.php" class="card-link">Create New Accound</a>
+        <a href="./register.php" class="card-link">Create New Account</a>
         <button type="submit" name="login_btn" class="btn float-right btn-primary">Submit</button>
     </form>
 </div>
