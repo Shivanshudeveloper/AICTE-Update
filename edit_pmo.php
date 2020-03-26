@@ -13,14 +13,6 @@
 	VVIP/PMO References
 </h2>
 
-<button onclick="window.print();" class="float-right mr-2 mt-2 btn btn-primary">
-    Print Simple
-</button>
-
-<a href="./edit_pmo.php" class="float-right m-2 btn btn-primary">
-    Edit
-</a>
-
 <table class="table mt-2" cellspacing="0" border="0">
 	<!-- <colgroup width="46"></colgroup>
 	<colgroup span="2" width="75"></colgroup>
