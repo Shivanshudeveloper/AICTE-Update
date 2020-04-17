@@ -9,83 +9,48 @@
 <body>
 <?php include './iframe/header.inc.php' ?>
 
-<div class="container w-25 mt-5 mb-5">
-    <center>
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png" alt="" class="img img-fluid w-50 mb-2" srcset="">
-    </center>
+<div class="container w-50 mt-5 mb-5">
+    
     <h2 class="font-weight-bold mb-4 text-center">
-        AICTE All Admin Login
+        Who You Are ?
     </h2>
+    <center>
+        <a href="./login.php" class="btn w-50 btn-outline-primary m-2">Login</a>
+    </center>
     <?php include './includes/msg.inc.php' ?>
-    <form action="./src/php/main.php" method="POST">
-
-    <div class="form-group">
-            <select class="form-control" name="department" id="department">
-              <option selected="" disabled="">Select Department</option>
-              <option value="CMOffice">Chairman Office</option>
-              <option value="VCMOffice">Vice-Chairman Office</option>
-              <option value="MSOffice">Member Secretary Office</option>
-              <option value="Policy-and-Academic-Planning-Bureau">Policy and Academic Planning Bureau</option>
-              <option value="MIC">MIC</option>
-              <option value="NEAT">NEAT</option>
-              <option value="RIFD">Research, Institutional and Faculty Development (RIFD) Bureau</option>
-              <option value="Approval-Bureau">Approval Bureau</option>
-              <option value="Finance-Bureau">Finance Bureau</option>
-              <option value="Adminstration">Administration</option>
-              <option value="CMAT/GPAT-Cell">CMAT/GPAT Cell</option>
-              <option value="PMSSS-Cell">PMSSS Cell</option>
-              <option value="Skill-Development-Cell">Skill Development Cell</option>
-              <option value="SWAYAM-Project-Cell">SWAYAM Project Cell</option>
-              <option value="Grievance-Redressal-Cell">Grievance Redressal Cell</option>
-              <option value="Legal-Cell">Legal Cell</option>
-              <option value="Vigilance-Cell">Vigilance Cell</option>
-              <option value="NEQIP-Cell">NEQIP Cell</option>
-              <option value="Estate-Management-Cell">Estate Management Cell</option>
-              <option value="RTI-Cell">RTI Cell</option>
-              <option value="Internal-Audit-Cell">Internal Audit Cell</option>
-              <option value="Parliament-Cell">Parliament Cell</option>
-              <option value="Hindi-Cell">Hindi Cell</option>
-              <option value="Direct-Benefit-Transfer-(DBT)-Cell">Direct Benefit Transfer (DBT) Cell</option>
-              <option value="Newsletter">Newsletter</option>
-              <option value="Library">Library</option>
-              <option value="General-Office-Number">General Office Number</option>
-              <option value="E-Gov">E-Gov</option>
-            </select>
-        </div>
 
 
-        <div class="form-row mt-4 mb-4">
-            <div class="col">
-                <!-- First name -->
-                <input type="text" id="defaultRegisterFormFirstName" name="first" class="form-control" placeholder="First name">
+    <div class="row text-center">
+        <div class="col-4">
+            <div class="card">
+            <center>
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/All_India_Council_for_Technical_Education_logo.png/220px-All_India_Council_for_Technical_Education_logo.png" class="w-50 card-img-top mt-2" alt="...">
+            </center>
+            <div class="card-body">
+                <h5 class="card-title">Register as AICTE</h5>
+                <a href="./register-aicte.php" class="btn btn-primary">Register</a>
             </div>
-            <div class="col">
-                <!-- Last name -->
-                <input type="text" id="defaultRegisterFormLastName" name="last" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+            <img src="https://www.xaviercomm.org/images/slider/visual-mobile.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Register as Instutute</h5>
+                <a href="./register-institute.php" class="btn btn-primary">Register</a>
+            </div>
             </div>
         </div>
 
-        
-
-        <!-- E-mail -->
-        <input type="email" id="defaultRegisterFormEmail" name="email" class="form-control mt-4 mb-4" placeholder="AICTE E-mail">
-
-        <!-- Password -->
-        <input type="password" id="defaultRegisterFormPassword" name="pwd" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-            At least 8 characters and 1 digit
-        </small>
-        <input type="password" id="defaultRegisterFormPassword" class="form-control mt-4" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-        
-
-        <a href="./login.php" class="float-left card-link mt-2">Already have an Account</a>
-
-        <!-- Sign up button -->
-        <button class="btn btn-primary my-4 float-right" name="register_user" type="submit">Register</button>
-
-       
-
-    </form>
+        <div class="col-4">
+            <div class="card">
+            <img src="https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/places-to-visit-in-india-1545729050-390X219.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Register as RO</h5>
+                <a href="./register-ro.php" class="btn btn-primary">Register</a>
+            </div>
+            </div>
+        </div>
 
 </div>
 

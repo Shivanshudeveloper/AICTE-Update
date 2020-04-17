@@ -11,7 +11,7 @@
 
 <div class="container mt-5 mb-5">
     <h2 class="font-weight-bold mb-2 text-center">
-        Status of Grant Released
+        NEAT
     </h2>
     <form method="POST" action="./src/php/main.php">
         

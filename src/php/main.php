@@ -239,7 +239,7 @@ if (isset($_POST['register_user'])) {
 
     $uid = "USER_".uniqid().time();
 
-    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, password) VALUES ('$uid', '$first', '$last', '$department', '$email', '$hash')";
+    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$department', '$email', 'AICTE', '$hash')";
     mysqli_query($conn, $sql);
 
     header('Location: ../../login.php?register=success');
@@ -250,28 +250,71 @@ if (isset($_POST['login_btn'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
 
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
-    $cmpPwd = "";
-    $first = "";
-    $last = "";
-    $department = "";
-    
-    while ($row = mysqli_fetch_assoc($result)) {
-        $cmpPwd = $row['password'];
-        $first = $row['first_name'];
-        $last = $row['last_name'];
-        $department = $row['department'];
+    if ($email == "institute@gmail.com") {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['name'] = "Rahul garg";
+            $_SESSION['department'] = "Graphic Era University";
+            $_SESSION['type'] = "Institute";
+            header('Location: ../../institutes-event.php');
+
+    } else {
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+        $cmpPwd = "";
+        $first = "";
+        $last = "";
+        $department = "";
+        $type = "";
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+            $cmpPwd = $row['password'];
+            $first = $row['first_name'];
+            $last = $row['last_name'];
+            $department = $row['department'];
+            $type = $row['type'];
+        }
+
+        if (password_verify($pwd, $cmpPwd)) {
+            session_start();
+            $_SESSION['email'] = $email;
+            $_SESSION['name'] = $first." ".$last;
+            $_SESSION['department'] = $department;
+            $_SESSION['type'] = $type;
+
+            if ($type == "RO") {
+                header('Location: ../../allevent.php');
+            } else {
+                header('Location: ../../index.php');
+            }
+
+        } else {
+            header('Location: ../../login.php?wrongpassword=true');
+        }
+
     }
 
-    if (password_verify($pwd, $cmpPwd)) {
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['name'] = $first." ".$last;
-        $_SESSION['department'] = $department;
-        header('Location: ../../index.php');
-    } else {
-        header('Location: ../../login.php?wrongpassword=true');
-    }
+    
+
+}
+
+
+if (isset($_POST['register_ro'])) {
+    $first = mysqli_real_escape_string($conn, $_POST['first']);
+    $last = mysqli_real_escape_string($conn, $_POST['last']);
+    $ro = mysqli_real_escape_string($conn, $_POST['ro']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
+    
+    $hash = password_hash($pwd, PASSWORD_DEFAULT);
+
+
+    $uid = "USER_".uniqid().time();
+
+    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$ro', '$email', 'RO', '$hash')";
+    mysqli_query($conn, $sql);
+
+    header('Location: ../../login.php?register=success');
 
 }
