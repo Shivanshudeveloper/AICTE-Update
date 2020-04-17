@@ -234,12 +234,11 @@ if (isset($_POST['register_user'])) {
     $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
     $department = mysqli_real_escape_string($conn, $_POST['department']);
     
-    $hash = password_hash($pwd, PASSWORD_DEFAULT);
 
 
     $uid = "USER_".uniqid().time();
 
-    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$department', '$email', 'AICTE', '$hash')";
+    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$department', '$email', 'AICTE', '$pwd')";
     mysqli_query($conn, $sql);
 
     header('Location: ../../login.php?register=success');
@@ -276,7 +275,7 @@ if (isset($_POST['login_btn'])) {
             $type = $row['type'];
         }
 
-        if (password_verify($pwd, $cmpPwd)) {
+        if ($pwd == $cmpPwd) {
             session_start();
             $_SESSION['email'] = $email;
             $_SESSION['name'] = $first." ".$last;
@@ -307,12 +306,11 @@ if (isset($_POST['register_ro'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
     
-    $hash = password_hash($pwd, PASSWORD_DEFAULT);
 
 
     $uid = "USER_".uniqid().time();
 
-    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$ro', '$email', 'RO', '$hash')";
+    $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$ro', '$email', 'RO', '$pwd')";
     mysqli_query($conn, $sql);
 
     header('Location: ../../login.php?register=success');
