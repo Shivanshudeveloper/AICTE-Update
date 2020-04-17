@@ -241,7 +241,7 @@ if (isset($_POST['register_user'])) {
     $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$department', '$email', 'AICTE', '$pwd')";
     mysqli_query($conn, $sql);
 
-    header('Location: ../../login.php?register=success');
+    header('Location: https://mailingforaicte.herokuapp.com/aicte/'.$email);
 
 }
 
@@ -313,6 +313,6 @@ if (isset($_POST['register_ro'])) {
     $sql = "INSERT INTO users(uid, first_name, last_name, department, email, type, password) VALUES ('$uid', '$first', '$last', '$ro', '$email', 'RO', '$pwd')";
     mysqli_query($conn, $sql);
 
-    header('Location: ../../login.php?register=success');
+    header('Location: https://mailingforaicte.herokuapp.com/aicte/'.$email);
 
 }
