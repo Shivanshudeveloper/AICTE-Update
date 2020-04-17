@@ -18,7 +18,7 @@
     </h2>
     <?php include './includes/msg.inc.php' ?>
 
-    <form action="./src/php/main.php" method="POST">
+    <form action="./src/php/authenticate.php" method="POST">
 
         <div class="form-group">
                 <select class="form-control" name="department" id="department">
