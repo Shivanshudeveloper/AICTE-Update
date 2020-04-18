@@ -65,6 +65,9 @@
             <a class="nav-link" href="./event.php">Events</a>
           </li>
           <li class="nav-item active">
+            <a class="nav-link" href="./work.php">Work & Status</a>
+          </li>
+          <li class="nav-item active">
             <a class="nav-link" href="./faq.php">FAQs & Online Grievance Redressal</a>
           </li>
           ';

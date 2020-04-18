@@ -14,3 +14,11 @@ if (isset($_GET['wrongpassword'])) {
     </div>
     ';
 }
+
+if (isset($_GET['update'])) {
+    echo '
+    <div class="alert alert-success" role="alert">
+        Successfully Updated
+    </div>
+    ';
+}
