@@ -22,3 +22,11 @@ if (isset($_GET['update'])) {
     </div>
     ';
 }
+
+if (isset($_GET['insert'])) {
+    echo '
+    <div class="alert alert-success" role="alert">
+        New Item Successfully Added
+    </div>
+    ';
+}

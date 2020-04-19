@@ -22,35 +22,39 @@
 
         <div class="form-group">
                 <select class="form-control" name="department" id="department">
-                <option selected="" disabled="">Select Department</option>
-                <option value="CMOffice">Chairman Office</option>
-                <option value="VCMOffice">Vice-Chairman Office</option>
-                <option value="MSOffice">Member Secretary Office</option>
-                <option value="Policy-and-Academic-Planning-Bureau">Policy and Academic Planning Bureau</option>
-                <option value="MIC">MIC</option>
-                <option value="NEAT">NEAT</option>
-                <option value="RIFD">Research, Institutional and Faculty Development (RIFD) Bureau</option>
-                <option value="Approval-Bureau">Approval Bureau</option>
-                <option value="Finance-Bureau">Finance Bureau</option>
-                <option value="Adminstration">Administration</option>
-                <option value="CMAT/GPAT-Cell">CMAT/GPAT Cell</option>
-                <option value="PMSSS-Cell">PMSSS Cell</option>
-                <option value="Skill-Development-Cell">Skill Development Cell</option>
-                <option value="SWAYAM-Project-Cell">SWAYAM Project Cell</option>
-                <option value="Grievance-Redressal-Cell">Grievance Redressal Cell</option>
-                <option value="Legal-Cell">Legal Cell</option>
-                <option value="Vigilance-Cell">Vigilance Cell</option>
-                <option value="NEQIP-Cell">NEQIP Cell</option>
-                <option value="Estate-Management-Cell">Estate Management Cell</option>
-                <option value="RTI-Cell">RTI Cell</option>
-                <option value="Internal-Audit-Cell">Internal Audit Cell</option>
-                <option value="Parliament-Cell">Parliament Cell</option>
-                <option value="Hindi-Cell">Hindi Cell</option>
-                <option value="Direct-Benefit-Transfer-(DBT)-Cell">Direct Benefit Transfer (DBT) Cell</option>
-                <option value="Newsletter">Newsletter</option>
-                <option value="Library">Library</option>
-                <option value="General-Office-Number">General Office Number</option>
-                <option value="E-Gov">E-Gov</option>
+                    <option selected="" disabled="">Select Department</option>
+                    <option value="CMOffice">Chairman Office</option>
+                    <option value="VCMOffice">Vice-Chairman Office</option>
+                    <option value="MSOffice">Member Secretary Office</option>
+                    <option value="Policy-and-Academic-Planning-Bureau">Policy and Academic Planning Bureau</option>
+                    <option value="MIC">MIC</option>
+                    <option value="NEAT">NEAT</option>
+                    <option value="Student development cell">Student development cell</option>
+                    <option value="Faculty development cell">Faculty development cell</option>
+                    <option value="Institute development cell">Institute development cell</option>
+                    <option value="Margadharshan cell">Margadharshan cell</option>
+                    <option value="Margadharshak cell">Margadharshak cell</option>
+                    <option value="Exam reforms cell">Exam reforms cell</option>
+                    <option value="ATAL cell">ATAL cell</option>
+                    <option value="Approval-Bureau">Approval Bureau</option>
+                    <option value="Finance-Bureau">Finance Bureau</option>
+                    <option value="Adminstration">Administration</option>
+                    <option value="PMSSS-Cell">PMSSS Cell</option>
+                    <option value="Skill-Development-Cell">Skill Development Cell</option>
+                    <option value="SWAYAM-Project-Cell">SWAYAM Project Cell</option>
+                    <option value="Grievance-Redressal-Cell">Grievance Redressal Cell</option>
+                    <option value="Legal-Cell">Legal Cell</option>
+                    <option value="Vigilance-Cell">Vigilance Cell</option>
+                    <option value="NEQIP-Cell">NEQIP Cell</option>
+                    <option value="Estate-Management-Cell">Estate Management Cell</option>
+                    <option value="RTI-Cell">RTI Cell</option>
+                    <option value="Internal-Audit-Cell">Internal Audit Cell</option>
+                    <option value="Parliament-Cell">Parliament Cell</option>
+                    <option value="Hindi-Cell">Hindi Cell</option>
+                    <option value="Direct-Benefit-Transfer-(DBT)-Cell">Direct Benefit Transfer (DBT) Cell</option>
+                    <option value="Newsletter">Newsletter</option>
+                    <option value="Library">Library</option>
+                    <option value="E-Gov">E-Gov</option>
                 </select>
             </div>
 

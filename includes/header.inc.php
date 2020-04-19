@@ -59,9 +59,6 @@
             <a class="nav-link" href="./pmo.php">VVIP/PMO References</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./activity/">Activity Booklet</a>
-          </li>
-          <li class="nav-item active">
             <a class="nav-link" href="./event.php">Events</a>
           </li>
           <li class="nav-item active">

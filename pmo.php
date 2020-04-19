@@ -22,14 +22,6 @@
 </a>
 
 <table class="table mt-2" cellspacing="0" border="0">
-	<!-- <colgroup width="46"></colgroup>
-	<colgroup span="2" width="75"></colgroup>
-	<colgroup width="546"></colgroup>
-	<colgroup width="1894"></colgroup>
-	<colgroup width="253"></colgroup>
-	<colgroup width="215"></colgroup>
-	<colgroup width="174"></colgroup>
-	<colgroup width="447"></colgroup> -->
 	<thead class="thead-dark">
 		<tr>
 			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" rowspan=2 height="40" align="center" valign=middle><b><font size=3 color="#2E75B6">S.No.</font></b></td>

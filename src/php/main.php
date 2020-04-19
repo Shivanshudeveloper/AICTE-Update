@@ -166,7 +166,8 @@ if (isset($_POST['edit_induction'])) {
 
 
 if (isset($_POST['submit_form'])) {
-    $scheme = mysqli_real_escape_string($conn, $_POST['scheme']);
+    $scheme = $tempScheme = mysqli_real_escape_string($conn, $_POST['scheme']);
+    $department = mysqli_real_escape_string($conn, $_POST['department']);
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $proposed = mysqli_real_escape_string($conn, $_POST['editor']);
@@ -189,12 +190,76 @@ if (isset($_POST['submit_form'])) {
     // Check whether the editor content is empty
     if(!empty($proposed)) {
         // Insert editor content in the database
-        $insert ="INSERT INTO new_scheme (scheme, title, description, proposed_target, future_target, file_url) VALUES ('$scheme', '$title', '$description', '$proposed', '$future', '$url')";
+
+        $sql2 = "SELECT * FROM allscheme WHERE department = '$department';";
+        $result2 = mysqli_query($conn, $sql2);
+        $resultChk2 = mysqli_num_rows($result2);
+
+        if ($resultChk2 < 1) {
+            $scheme = "`".$scheme."`";
+            $insert ="INSERT INTO allscheme (department, scheme) VALUES ('$department', '$scheme')";
+            $result = mysqli_query($conn, $insert);
+        } else {
+            if ($row = mysqli_fetch_assoc($result2)) {
+                $scheme = $row['scheme'].','."`".$scheme."`";
+                $insert ="UPDATE allscheme SET scheme = '$scheme' WHERE department = '$department';";
+                $result = mysqli_query($conn, $insert);
+            }
+        } 
+
+        $insert ="INSERT INTO new_scheme (department, scheme, title, description, proposed_target, future_target, file_url) VALUES ('$department', '$tempScheme', '$title', '$description', '$proposed', '$future', '$url')";
         $result = mysqli_query($conn, $insert);
+
+        
         echo $result;
         // If database insertion is successful
         if($insert){
             header("Location: ../../index.php?insert=sucess");
+            exit();
+        }else{
+            $statusMsg = "Some problem occurred, please try again.";
+            echo $statusMsg;
+        } 
+    }else{
+        $statusMsg = 'Please add content in the editor.';
+        echo $statusMsg;
+    }
+}
+
+
+if (isset($_POST['update_form'])) {
+    $scheme = $tempScheme = mysqli_real_escape_string($conn, $_POST['scheme']);
+    $department = mysqli_real_escape_string($conn, $_POST['department']);
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $proposed = mysqli_real_escape_string($conn, $_POST['editor']);
+    $future = mysqli_real_escape_string($conn, $_POST['editor2']);
+
+
+    $file = $_FILES['upload']['tmp_name'];
+    $file_name = $_FILES['upload']['name'];
+    $file_name_array = explode(".", $file_name);
+    $extension = end($file_name_array);
+    $new_image_name = rand() . '.' . $extension;
+    chmod('../../upload', 0777);
+    move_uploaded_file($file, '../../upload/' . $new_image_name);
+    $url = './upload/' . $new_image_name;
+    $message = '';
+
+    // Include the database configuration file
+    $editorContent = $statusMsg = '';
+    
+    // Check whether the editor content is empty
+    if(!empty($proposed)) {
+         
+
+        $insert ="UPDATE `new_scheme` SET `department`='$department',`scheme`='$tempScheme',`title`='$title',`description`='$description',`proposed_target`='$proposed',`future_target`='$future',`file_url`='$url' 
+        WHERE `department` = '$department' AND `scheme`='$tempScheme';";
+        $result = mysqli_query($conn, $insert);
+
+        // If database insertion is successful
+        if($insert){
+            header("Location: ../../index.php?update=sucess");
             exit();
         }else{
             $statusMsg = "Some problem occurred, please try again.";
@@ -325,3 +390,56 @@ if (isset($_POST['register_ro'])) {
     header('Location: https://mailingforaicte.herokuapp.com/aicte/'.$email);
 
 }
+
+
+if (isset($_POST['currentStatus'])) {
+    $schemeName = $_POST['schemeName'];
+    session_start();
+    $department = $_SESSION['department'];
+    $sql = "SELECT * FROM new_scheme WHERE department = '$department' AND scheme = '$schemeName';";
+    $result = mysqli_query($conn, $sql);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        echo $row['title'];
+    }
+}
+
+
+if (isset($_POST['description'])) {
+    $schemeName = $_POST['schemeName'];
+    session_start();
+    $department = $_SESSION['department'];
+    $sql = "SELECT * FROM new_scheme WHERE department = '$department' AND scheme = '$schemeName';";
+    $result = mysqli_query($conn, $sql);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        echo $row['description'];
+    }
+}
+
+
+if (isset($_POST['proposed_target'])) {
+    $schemeName = $_POST['schemeName'];
+    session_start();
+    $department = $_SESSION['department'];
+    $sql = "SELECT * FROM new_scheme WHERE department = '$department' AND scheme = '$schemeName';";
+    $result = mysqli_query($conn, $sql);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        echo $row['proposed_target'];
+    }
+}
+
+
+if (isset($_POST['future_target'])) {
+    $schemeName = $_POST['schemeName'];
+    session_start();
+    $department = $_SESSION['department'];
+    $sql = "SELECT * FROM new_scheme WHERE department = '$department' AND scheme = '$schemeName';";
+    $result = mysqli_query($conn, $sql);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        echo $row['future_target'];
+    }
+}
+
