@@ -50,7 +50,7 @@
         if ($_SESSION['type'] != "RO" && $_SESSION['type'] != "Institute") {
           echo '
           <li class="nav-item active">
-            <a class="nav-link" href="./view.php">View By Department</a>
+            <a class="nav-link" href="view.php">View By Department</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="./court_cases.php">Court Cases</a>

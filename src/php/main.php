@@ -185,6 +185,10 @@ if (isset($_POST['submit_form'])) {
     $url = './upload/' . $new_image_name;
     $message = '';
 
+    date_default_timezone_set('Asia/Kolkata');
+    $created = "Date: ".date("Y-m-d").", At Time: ".date("h:i:sa");
+    $updated = "Not Updated Yet";
+
     // Include the database configuration file
     $editorContent = $statusMsg = '';
     
@@ -208,7 +212,7 @@ if (isset($_POST['submit_form'])) {
             }
         } 
 
-        $insert ="INSERT INTO new_scheme (department, scheme, title, description, proposed_target, future_target, file_url) VALUES ('$department', '$tempScheme', '$title', '$description', '$proposed', '$future', '$url')";
+        $insert ="INSERT INTO new_scheme (department, scheme, title, description, proposed_target, future_target,created, updated, file_url) VALUES ('$department', '$tempScheme', '$title', '$description', '$proposed', '$future', '$created', '$updated', '$url')";
         $result = mysqli_query($conn, $insert);
         
         echo $result;
@@ -249,12 +253,15 @@ if (isset($_POST['update_form'])) {
 
     // Include the database configuration file
     $editorContent = $statusMsg = '';
+
+    date_default_timezone_set('Asia/Kolkata');
+    $updated = "Date: ".date("Y-m-d").", At Time: ".date("h:i:sa");
     
     // Check whether the editor content is empty
     if(!empty($proposed)) {
          
 
-        $insert ="UPDATE `new_scheme` SET `department`='$department',`scheme`='$tempScheme',`title`='$title',`description`='$description',`proposed_target`='$proposed',`future_target`='$future',`file_url`='$url' 
+        $insert ="UPDATE `new_scheme` SET `department`='$department',`scheme`='$tempScheme',`title`='$title',`description`='$description',`proposed_target`='$proposed',`future_target`='$future',`file_url`='$url', `updated` = '$updated' 
         WHERE `department` = '$department' AND `scheme`='$tempScheme';";
         $result = mysqli_query($conn, $insert);
 
@@ -277,7 +284,10 @@ if (isset($_POST['update_proposed'])) {
     $proposed_new = mysqli_real_escape_string($conn, $_POST['editor']);
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    $sql = "UPDATE new_scheme SET proposed_target = '$proposed_new' WHERE id = '$id';";
+    date_default_timezone_set('Asia/Kolkata');
+    $updated = "Date: ".date("Y-m-d").", At Time: ".date("h:i:sa");
+
+    $sql = "UPDATE new_scheme SET proposed_target = '$proposed_new', `updated` = '$updated' WHERE id = '$id';";
     mysqli_query($conn, $sql);
 
     header('Location: ../../edit_view.php?update=sucess&id='.$id.'&e=proposed');
@@ -287,7 +297,10 @@ if (isset($_POST['update_new_scheme'])) {
     $description = mysqli_real_escape_string($conn, $_POST['editor']);
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    $sql = "UPDATE new_scheme SET description = '$description' WHERE id = '$id';";
+    date_default_timezone_set('Asia/Kolkata');
+    $updated = "Date: ".date("Y-m-d").", At Time: ".date("h:i:sa");
+
+    $sql = "UPDATE new_scheme SET description = '$description', `updated` = '$updated' WHERE id = '$id';";
     mysqli_query($conn, $sql);
     header('Location: ../../edit_new_schemes.php?update=sucess&id='.$id.'');
 }
@@ -296,7 +309,10 @@ if (isset($_POST['update_future'])) {
     $future_new = mysqli_real_escape_string($conn, $_POST['editor2']);
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    $sql = "UPDATE new_scheme SET future_target = '$future_new' WHERE id = '$id';";
+    date_default_timezone_set('Asia/Kolkata');
+    $updated = "Date: ".date("Y-m-d").", At Time: ".date("h:i:sa");
+
+    $sql = "UPDATE new_scheme SET future_target = '$future_new', `updated` = '$updated' WHERE id = '$id';";
     mysqli_query($conn, $sql);
 
     header('Location: ../../edit_view.php?update=sucess&id='.$id.'&e=future');

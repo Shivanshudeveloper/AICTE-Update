@@ -17,6 +17,15 @@
     $sql = "SELECT * FROM new_scheme WHERE id = '$id';";
     $result = mysqli_query($conn, $sql);
     if ($row = mysqli_fetch_assoc($result)) {
+        echo '
+            <button onclick="window.print();" class="btn btn-outline-secondary float-right mb-2">Print</button>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Notes</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        ';
+
+
         echo 
         '
         <div class="card mt-2">
@@ -69,13 +78,7 @@
     
 </div>
 
-<script>
-	$( document ).ready(function() {
-        console.log( "ready!" );
-        window.print();
-    });
-    
-</script>
+
 
 
 
