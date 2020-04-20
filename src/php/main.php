@@ -174,6 +174,7 @@ if (isset($_POST['submit_form'])) {
     $future = mysqli_real_escape_string($conn, $_POST['editor2']);
 
 
+
     $file = $_FILES['upload']['tmp_name'];
     $file_name = $_FILES['upload']['name'];
     $file_name_array = explode(".", $file_name);
@@ -209,20 +210,20 @@ if (isset($_POST['submit_form'])) {
 
         $insert ="INSERT INTO new_scheme (department, scheme, title, description, proposed_target, future_target, file_url) VALUES ('$department', '$tempScheme', '$title', '$description', '$proposed', '$future', '$url')";
         $result = mysqli_query($conn, $insert);
-
         
         echo $result;
+        
         // If database insertion is successful
         if($insert){
             header("Location: ../../index.php?insert=sucess");
             exit();
         }else{
             $statusMsg = "Some problem occurred, please try again.";
-            echo $statusMsg;
+            // echo $statusMsg;
         } 
     }else{
         $statusMsg = 'Please add content in the editor.';
-        echo $statusMsg;
+        // echo $statusMsg;
     }
 }
 
@@ -392,6 +393,19 @@ if (isset($_POST['register_ro'])) {
 }
 
 
+if (isset($_POST['update_pmo_references'])) {
+    $description = mysqli_real_escape_string($conn, $_POST['description_pmo']);
+    $sql = "UPDATE information SET description = '$description' WHERE name = 'VVIP/PMO References';";
+    mysqli_query($conn, $sql);
+    echo "GO";
+    header("Location: ../../edit_pmo.php?update=sucess");
+}
+
+
+
+
+
+
 if (isset($_POST['currentStatus'])) {
     $schemeName = $_POST['schemeName'];
     session_start();
@@ -442,4 +456,5 @@ if (isset($_POST['future_target'])) {
         echo $row['future_target'];
     }
 }
+
 

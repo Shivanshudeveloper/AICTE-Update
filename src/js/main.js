@@ -2,7 +2,7 @@ $( document ).ready(function() {
     console.log("SS");
     //setup before functions
     var typingTimer;                //timer identifier
-    var doneTypingInterval = 2000;  //time in ms, 5 second for example
+    var doneTypingInterval = 1000;  //time in ms, 5 second for example
     var $input = $('#scheme');
 
     //on keyup, start the countdown

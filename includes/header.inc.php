@@ -61,9 +61,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="./event.php">Events</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./work.php">Work & Status</a>
-          </li>
+          
           <li class="nav-item active">
             <a class="nav-link" href="./faq.php">FAQs & Online Grievance Redressal</a>
           </li>
@@ -99,4 +97,11 @@
 </nav>
 <script src="./ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+<!-- <li class="nav-item active">
+  <a class="nav-link" href="./work.php">Work & Status</a>
+</li> -->
+
 <?php include 'auth.php'; ?>

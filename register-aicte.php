@@ -26,6 +26,7 @@
                     <option value="CMOffice">Chairman Office</option>
                     <option value="VCMOffice">Vice-Chairman Office</option>
                     <option value="MSOffice">Member Secretary Office</option>
+                    <option value="CCO">Cheif Cordinating Officer</option>
                     <option value="Policy-and-Academic-Planning-Bureau">Policy and Academic Planning Bureau</option>
                     <option value="MIC">MIC</option>
                     <option value="NEAT">NEAT</option>

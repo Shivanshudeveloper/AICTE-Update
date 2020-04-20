@@ -17,15 +17,23 @@
         
         <div class="form-group">
             <div style="margin-left: 45%;" class="h3 font-weight-bold">
-                Details of Court Cases (2017-2020)
+                Details of Court Cases
             </div>
             <button onclick="window.print();" class="btn btn-primary">
                 Print Simple
             </button>
 
-            <a href="./edit_status_grant.php" class="float-right mb-1 btn btn-primary">
-                Edit
-            </a>
+            <?php 
+                if ($_SESSION['department'] == "VCMOffice" || $_SESSION['department'] == "CMOffice" || $_SESSION['department'] == "MSOffice" || $_SESSION['department'] == "CCO") {
+                    echo '
+                        <a href="./edit_status_grant.php" class="float-right mb-1 btn btn-primary">
+                            Edit
+                        </a>
+                    ';
+                }
+            ?>
+
+            
         <table class="table">
             <thead class="thead-dark">
                 <tr>
