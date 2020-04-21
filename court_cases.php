@@ -32,7 +32,9 @@
                     ';
                 }
             ?>
-
+    <center>
+        <img class="w-25 mb-4" src="https://www.aicte-india.org/sites/default/files/logo_new.png" alt="AICTE">
+    </center>
             
         <table class="table">
             <thead class="thead-dark">
@@ -125,6 +127,10 @@
 
             </tbody>
         </table>
+        <?php 
+            echo "<h5>Document Printed On: ".date("Y-m-d")." At time: ".date("h:i:sa")."</h5>";
+        ?>
+
         </div>
     </form>
 </div>

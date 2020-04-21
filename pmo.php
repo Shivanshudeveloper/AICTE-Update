@@ -8,7 +8,9 @@
 </head>
 <body >
 <?php include './includes/header.inc.php' ?>
-
+<center>
+    <img class="w-25 mb-4" src="https://www.aicte-india.org/sites/default/files/logo_new.png" alt="AICTE">
+</center>
 <h2 class="text-center">
 	VVIP/PMO References
 </h2>
@@ -27,7 +29,7 @@ if ($_SESSION['department'] == "VCMOffice" || $_SESSION['department'] == "CMOffi
 	';
 }
 ?>
-
+	
 
 
 <br>
@@ -42,6 +44,9 @@ if ($row = mysqli_fetch_assoc($result)) {
 	echo $row['description'];
 }
 
+?>
+<?php 
+    echo "<h5 class='mt-4'>Document Printed On: ".date("Y-m-d")." At time: ".date("h:i:sa")."</h5>";
 ?>
 <!-- ************************************************************************** -->
 </body>

@@ -9,6 +9,9 @@
 <body>
 <?php include './iframe/header.inc.php' ?>
 <div class="m-4">
+    <center>
+        <img class="w-25" src="https://www.aicte-india.org/sites/default/files/logo_new.png" alt="AICTE">
+    </center>
 
 <?php
     include_once './src/php/dbh.php';
@@ -62,8 +65,10 @@
         <p class="float-left">
             Document Created: '.$row['created'].'<span class="ml-4"> Document Last Updated: '.$row['updated'].'  </span>
         </p>
-        
+        <br/>
+        <hr/>
         ';
+        echo "<h5>Document Printed On: ".date("Y-m-d")." At time: ".date("h:i:sa")."</h5>";
     }
 ?>
     

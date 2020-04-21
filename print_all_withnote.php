@@ -10,9 +10,10 @@
 <?php include './includes/header.inc.php' ?>
 
 <div class="m-5">
-    <h2 class="font-weight-bold mb-2">
-        All India Council for Technical Education
-    </h2>
+    <center>
+        <img class="w-25" src="https://www.aicte-india.org/sites/default/files/logo_new.png" alt="AICTE">
+    </center>
+    
     <?php
         include_once './src/php/dbh.php';
         $sql1 = "SELECT * FROM information;";
@@ -84,6 +85,7 @@
                             
                             ';
         }
+        echo "<h5>Document Printed On: ".date("Y-m-d")." At time: ".date("h:i:sa")."</h5>";
     ?>
 
 

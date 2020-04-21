@@ -1029,6 +1029,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="float-left">
+                                Document Created: '.$row['created'].'<span class="ml-4"> Document Last Updated: '.$row['updated'].'  </span>
+                            </p>
+                            <br/>
+                            <br/>
+                            <hr/>
                             
                             ';
                         }
